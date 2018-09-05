@@ -3,19 +3,27 @@ $(document).ready(function(){
 	
 	switch(menu)
 	{
-		case('about'):
+		case 'about':
 			{
 				$("#about").addClass('active');
 				break;
 			}
-		case('contact'):
+		case 'contact':
 		{
 			$("#contact").addClass('active');
 			break;
 		}
+		case 'All products':
+			{
+				$('#listproducts').addClass('active');
+				break;
+			}
+		
 		default:
 		{
-			$("#home").addClass('active');
+			$("#listproducts").addClass('active');
+			$('#a_'+menu).addClass('active');
+			
 			break;
 		}
 	

@@ -63,6 +63,13 @@
    			<%@ include file="contact.jsp" %>
    	</c:if>
    
+   <!-- Loading Products --->
+  	<c:if test="${UserClickShowAll == true or UserClickIdProduct == true}">
+  		<%@ include file="showProduct.jsp" %>
+  	</c:if>
+   
+   
+  
    
 
     <!-- Footer -->
