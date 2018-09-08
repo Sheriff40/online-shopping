@@ -40,7 +40,7 @@ public class HibernateConfig {
 	{
 		LocalSessionFactoryBuilder sb = new LocalSessionFactoryBuilder(dataSource);
 		sb.addProperties(getHibernateProperties());
-		sb.scanPackages("net.ssh.shoppingbackend");
+		sb.scanPackages("net.ssh.shoppingbackend.dto");
 		return sb.buildSessionFactory();
 		
 	}

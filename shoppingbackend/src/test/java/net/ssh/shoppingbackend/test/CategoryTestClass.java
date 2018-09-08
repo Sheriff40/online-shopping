@@ -59,6 +59,6 @@ public class CategoryTestClass {
 		assertEquals("Successfuly fetched category by id",true,dao.delete(category));
 	
 		/* List Data */
-		assertEquals("Successfuly fetched all category",1,dao.getCustomers().size());
+		assertEquals("Successfuly fetched all category",12,dao.getCustomers().size());
 	}
 }

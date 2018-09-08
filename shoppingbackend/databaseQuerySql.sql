@@ -48,6 +48,8 @@ create table product(
 	views INT DEFAULT 0,
 	CONSTRAINT fk_product_category_id FOREIGN KEY (category_id) REFERENCES category(id),
 	CONSTRAINT fk_product_supplier_id FOREIGN KEY (supplier_id) REFERENCES user_detail(id)
-
 )
+
+INSERT INTO product (code,name,brand,description,unit_price,quantity,is_active,category_id,supplier_id)
+VALUES ('PDR123123','Iphone5s','Apple','This is apple',20000,5,true,1,2);
 
