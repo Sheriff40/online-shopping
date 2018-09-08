@@ -9,5 +9,7 @@ public interface CategoryDAO {
 
 	public List<Category> getCustomers(); 
 	public Category  getById(int id); 
-	
+	public boolean insert(Category category);
+	public boolean update(Category category);
+	public boolean delete(Category category);
 }
