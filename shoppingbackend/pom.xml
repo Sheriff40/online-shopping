@@ -16,6 +16,7 @@
 		<javaee.version>7.0</javaee.version>
 		<javamvc.version>4.3.6.RELEASE</javamvc.version>
 		<hibernate.version>5.2.7.Final</hibernate.version>
+		<jackson.version>2.8.7</jackson.version>
 	</properties>
 
 	<dependencies>
@@ -30,6 +31,19 @@
 			<artifactId>spring-context</artifactId>
 			<version>${javamvc.version}</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		
+
 
 
 		<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->

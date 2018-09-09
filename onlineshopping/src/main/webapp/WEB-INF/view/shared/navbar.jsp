@@ -7,9 +7,10 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
           
+          	<li class="nav-item" id="home">
+              <a class="nav-link" href="${SITE_URL}/home">Home</a>
+            </li>
           
-       
-            
             <li class="nav-item" id="about">
               <a class="nav-link" href="${SITE_URL}/about">About</a>
             </li>

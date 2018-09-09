@@ -28,6 +28,7 @@
 	</style>
 	<script>
 		window.menu = '${title}';
+		window.siteURL = '${SITE_URL}';
 	</script>
 
     <!-- Bootstrap core CSS -->
@@ -35,7 +36,9 @@
 
 	<!-- Bootstrap-sketchy-theme -->
 	<link href="${css}/bootstrap-sketchy-theme.css" rel="stylesheet">
-
+	
+	<link href="${css}/jquery.dataTables.css" rel="stylesheet" >
+	
     <!-- Custom styles for this template -->
     <link href="${css}/shop-homepage.css" rel="stylesheet">
 
@@ -78,6 +81,8 @@
     <!-- Bootstrap core JavaScript -->
     <script src="${js}/jquery.min.js"></script>
     <script src="${js }/bootstrap.bundle.min.js"></script>
+    <script src="${js}/jquery.dataTables.js"></script>
+    
 	<script src="${js}/active.js"></script>
   </body>
 
