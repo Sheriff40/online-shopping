@@ -50,6 +50,5 @@ create table product(
 	CONSTRAINT fk_product_supplier_id FOREIGN KEY (supplier_id) REFERENCES user_detail(id)
 )
 
-INSERT INTO product (code,name,brand,description,unit_price,quantity,is_active,category_id,supplier_id)
-VALUES ('PDR123123','Iphone5s','Apple','This is apple',20000,5,true,1,2);
-
+INSERT INTO product (name,brand,description,unit_price,quantity,is_active,category_id,supplier_id)
+VALUES ('Bravo LED','Bravo','Bravo Full HD TV 1080p',85000,0,true,2,1);

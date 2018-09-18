@@ -71,7 +71,10 @@
   		<%@ include file="showProduct.jsp" %>
   	</c:if>
    
-   
+   <!-- Loading Single Products --->
+  	<c:if test="${UserClickSingleProduct == true}">
+  		<%@ include file="showSingleProduct.jsp" %>
+  	</c:if>
   
    
 

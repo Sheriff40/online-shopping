@@ -8,8 +8,21 @@ body {
   padding-top: 54px;
 }
 
+.tableImg
+  {
+  	height: 100px;
+  	width: 100px;
+  }
+
 @media (min-width: 992px) {
   body {
     padding-top: 56px;
   }
+	.tableImg
+  {
+  	height: 120px;
+  	width: 150px;
+  }  
+ 
 }
+

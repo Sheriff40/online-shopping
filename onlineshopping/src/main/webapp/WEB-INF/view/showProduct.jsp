@@ -33,10 +33,13 @@
 						<table id="listProductTable"
 							class="table table-striped table-bordered">
 							<thead>
+								<th>Image</th>
 								<th>Name</th>
 								<th>Brand</th>
 								<th>Price</th>
+								<th>Quantity</th>
 								<th>Active</th>
+								<th>Actions</th>
 							</thead>
 						</table>
 					</div>
@@ -71,10 +74,13 @@
 						<table id="listProductTable"
 							class="table table-striped table-bordered">
 							<thead>
+								<th>Image</th>
 								<th>Name</th>
 								<th>Brand</th>
 								<th>Price</th>
+								<th>Quantity</th>
 								<th>Active</th>
+								<th>Actions</th>
 							</thead>
 						</table>
 					</div>
