@@ -1,5 +1,18 @@
+<%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="container">
 
+	<div class="col-md-12">
+		<c:if test="${not empty message}">
+
+			<div class="alert alert-danger fade in">
+				
+				<button  class="pull-right close" data-dismiss="alert"> &times;</button>
+				${message}
+			</div>
+
+		</c:if>
+	</div>
 	<div class="col-md-offset-2 col-md-8">
 		<div class="panel panel-primary">
 			<div class="panel-heading ">
@@ -7,7 +20,11 @@
 			</div>
 
 			<div class="panel-body ">
-				<form class="form-horizontal">
+
+
+
+				<sf:form class="form-horizontal" modelAttribute="product"
+					method="POST" action="${SITE_URL}/manage/products/save">
 
 					<div class="form-group">
 
@@ -15,9 +32,9 @@
 							Product Name</label>
 
 						<div class="col-md-8">
-							<input type="text" id="name" name="name" class="form-control "
-								placeholder="Enter Product name" /> <em class="help-block">*
-								Enter the product Name</em>
+							<sf:input type="text" id="name" path="name" class="form-control "
+								placeholder="Enter Product name" />
+							<sf:errors path="name" cssClass="error-body" element="em"></sf:errors>
 						</div>
 
 
@@ -25,12 +42,12 @@
 					<div class="form-group">
 
 						<label class="control-label  col-md-4" for="brandname">Enter
-							Product Name</label>
+							the Brand Name</label>
 
 						<div class="col-md-8">
-							<input type="text" id="brand-name" name="brand"
-								class="form-control " placeholder="Enter Brand name" /> <em
-								class="help-block">* Enter the Brand Name</em>
+							<sf:input type="text" id="brand-name" path="brand"
+								class="form-control " placeholder="Enter Brand name" />
+							<sf:errors path="brand" cssClass="error-body" element="em" />
 						</div>
 
 
@@ -41,11 +58,9 @@
 							Description</label>
 
 						<div class="col-md-8">
-							<textarea type="text" rows='4' id="product-desc"
-								name="description" class="form-control ">
-							
-							</textarea>
-
+							<sf:textarea type="text" rows='4' id="product-desc"
+								path="description" class="form-control " />
+							<sf:errors path="description" cssClass="error-body" element="em" />
 						</div>
 
 
@@ -55,10 +70,10 @@
 						<label class="control-label  col-md-4" for="unitPrice">Enter
 							Unit Price</label>
 
-						<div class="col-md-8">
-							<input type="number" id="unit-price" name="unitPrice"
-								class="form-control " placeholder="Enter Unit Price" /> <em
-								class="help-block">* Enter the Unit Price</em>
+						<div class="col-lg-8">
+							<sf:input type="number" id="unit-price" path="unitPrice"
+								class="form-control " placeholder="Enter Unit Price" />
+							<sf:errors path="unitPrice" cssClass="error-body" element="em" />
 						</div>
 
 
@@ -69,28 +84,36 @@
 							Available</label>
 
 						<div class="col-md-8">
-							<input type="number" id="quantity" name="quantity"
-								class="form-control " placeholder="Enter Quantity" /> <em
-								class="help-block">* Enter the Quantity</em>
+							<sf:input type="number" id="quantity" path="quantity"
+								class="form-control " placeholder="Enter Quantity" />
+							
 						</div>
 
 
 					</div>
 					<div class="form-group">
-						<label class="control-label col-md-4" for="categoryId">Select the category Id: </label>
+						<label class="control-label col-md-4" for="categoryId">Select
+							the category Id: </label>
 						<div class="col-md-8">
-							<select class="form-control" name="categoryId" id="categoryId">
-								<option value="1">Category One</option>
-								<option value="2">Category Two</option>
-								<option value="3">Category Three</option>
-							</select>
+							<sf:select class="form-control" path="categoryId" id="categoryId"
+								items="${category}" itemLabel="name" itemValue="id" />
+
 						</div>
-	
+
 					</div>
+
+					<sf:hidden path="id" />
+					<sf:hidden path="code" />
+					<sf:hidden path="active" />
+					<sf:hidden path="supplierId" />
+					<sf:hidden path="purchases" />
+					<sf:hidden path="views" />
+
 					<div class="col-md-offset-4 col-md-8">
-						<input type = "submit" value = "Submit" name = "submit" id = "submit" class="btn btn-success "/>
+						<input type="submit" value="Submit" name="submit" id="submit"
+							class="btn btn-success " />
 					</div>
-				</form>
+				</sf:form>
 			</div>
 		</div>
 
