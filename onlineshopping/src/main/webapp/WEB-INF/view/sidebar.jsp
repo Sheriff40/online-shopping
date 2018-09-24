@@ -5,7 +5,7 @@
 			<div class="list-group">
 
 				<c:forEach var = "c" items = "${categories}">
-					<a href="${SITE_URL}/show/category/${c.id}/product" id = "a_${c.name} }" 
+					<a href="${SITE_URL}/show/category/${c.id}/product" id = "a_${c.name}" 
 					class="list-group-item">${c.name}</a>
 				</c:forEach>
 			

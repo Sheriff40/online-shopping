@@ -13,11 +13,14 @@ $(document).ready(
 			case 'contact':
 				$("#contact").addClass('active');
 				break;
+			case 'Manage Products':
+				$('#manageproducts').addClass('active');
+				break;
 			default: {
 				$("#listproducts").addClass('active');
-				$('#a_' + menu).addClass('active');
+				$('#a_'+menu).addClass('active');
 				break;
-			}
+					}
 
 			}
 
