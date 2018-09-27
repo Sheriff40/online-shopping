@@ -1,5 +1,6 @@
 package net.ssh.onlineshopping.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import net.ssh.onlineshopping.util.multipartUtility;
 import net.ssh.shoppingbackend.dao.CategoryDAO;
 import net.ssh.shoppingbackend.dao.productDAO;
 import net.ssh.shoppingbackend.dto.Product;
@@ -51,8 +53,11 @@ public class manageController {
 	}
 	
 	@RequestMapping(value="products/save", method = RequestMethod.POST)
-	public String manageProducts(@Valid @ModelAttribute("product")Product product, BindingResult results, Model model)
+	public String manageProducts(@Valid @ModelAttribute("product")Product product, BindingResult results, Model model,HttpServletRequest request)
 	{
+		
+		
+		
 		if(results.hasErrors())
 		{
 			model.addAttribute("UserClickManageProducts",true);
@@ -61,6 +66,14 @@ public class manageController {
 		}
 		
 		productDAO.insert(product);
+		
+		if(!product.getFile().getOriginalFilename().equals(""))
+		{
+			
+			new multipartUtility().insertFile(product.getFile(),request,product.getCode());
+		}
+		
+		
 		return "redirect:/manage/products?operation=product";
 	}
 }

@@ -6,8 +6,9 @@
 		<c:if test="${not empty message}">
 
 			<div class="alert alert-danger fade in">
-				
-				<button  class="pull-right close" data-dismiss="alert"> &times;</button>
+
+				<button class="pull-right close" data-dismiss="alert">
+					&times;</button>
 				${message}
 			</div>
 
@@ -24,7 +25,8 @@
 
 
 				<sf:form class="form-horizontal" modelAttribute="product"
-					method="POST" action="${SITE_URL}/manage/products/save">
+					method="POST" action="${SITE_URL}/manage/products/save"
+					enctype="multipart/form-data">
 
 					<div class="form-group">
 
@@ -86,7 +88,7 @@
 						<div class="col-md-8">
 							<sf:input type="number" id="quantity" path="quantity"
 								class="form-control " placeholder="Enter Quantity" />
-							
+
 						</div>
 
 
@@ -99,7 +101,15 @@
 								items="${category}" itemLabel="name" itemValue="id" />
 
 						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-4" for="file">Select
+							the file: </label>
+						<div class="col-md-8">
+							<sf:input type="file" path="file" id="file"
+								/>
 
+						</div>
 					</div>
 
 					<sf:hidden path="id" />
