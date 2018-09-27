@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import net.ssh.onlineshopping.util.multipartUtility;
+import net.ssh.onlineshopping.util.validator;
 import net.ssh.shoppingbackend.dao.CategoryDAO;
 import net.ssh.shoppingbackend.dao.productDAO;
 import net.ssh.shoppingbackend.dto.Product;
@@ -56,6 +57,7 @@ public class manageController {
 	public String manageProducts(@Valid @ModelAttribute("product")Product product, BindingResult results, Model model,HttpServletRequest request)
 	{
 		
+		new validator().validate(product, results);
 		
 		
 		if(results.hasErrors())

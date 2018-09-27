@@ -108,8 +108,9 @@
 						<div class="col-md-8">
 							<sf:input type="file" path="file" id="file"
 								/>
-
+							<sf:errors path="file" cssClass="error-body" element="em" />
 						</div>
+						
 					</div>
 
 					<sf:hidden path="id" />
