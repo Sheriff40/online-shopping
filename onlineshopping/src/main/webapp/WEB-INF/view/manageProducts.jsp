@@ -134,10 +134,11 @@
 
 	</div>
 
-	<div class='col-xs-12'>
+	<div class='col-md-12'>
 		<table id="adminProductTable"
 			class="table table-striped table-bordered">
 			<thead>
+				<th> Id</th>
 				<th>Image</th>
 				<th>Name</th>
 				<th>Brand</th>
@@ -146,46 +147,7 @@
 				<th>Active</th>
 				<th>Edit</th>
 			</thead>
-			<tbody>
-				<tr>
-					<th><img alt=""
-						src="${SITE_URL}/resources/images/PRDC15B21825A.jpg/" class = "tableImg"></th>
-					<th>iphone5s</th>
-					<th>Apple</th>
-					<th>20,000</th>
-					<th>20</th>
-					<th>
-						<div class="switch">
-							<input type="checkbox" checked = "checked" >
-						</div>
-					</th>
-					<th><a href='#' class='btn btn-info'>Edit</a></th>
-				</tr>
-				<tr>
-					<th><img alt=""
-						src="${SITE_URL}/resources/images/PRDC15B21825A.jpg/" class = "tableImg">></th>
-					<th>iphone5s</th>
-					<th>Apple</th>
-					<th>20,000</th>
-					<th>20</th>
-					<th>
-						<div class="switch">
-							<input type="checkbox">
-						</div>
-					</th>
-					<th><a href='#' class='btn btn-info'>Edit</a></th>
-				</tr>
-
-			</tbody>
-			<tfoot>
-				<th>Image</th>
-				<th>Name</th>
-				<th>Brand</th>
-				<th>Price</th>
-				<th>Quantity</th>
-				<th>Active</th>
-				<th>Edit</th>
-			</tfoot>
+			
 		</table>
 
 

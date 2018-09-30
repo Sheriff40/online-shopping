@@ -1,5 +1,7 @@
 package net.ssh.onlineshopping.controller;
 
+import java.io.Console;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
@@ -8,9 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import net.ssh.onlineshopping.util.multipartUtility;
@@ -20,7 +24,7 @@ import net.ssh.shoppingbackend.dao.productDAO;
 import net.ssh.shoppingbackend.dto.Product;
 
 @Controller
-@RequestMapping(value = "manage")
+@RequestMapping(value = "/manage")
 public class manageController {
 
 	
@@ -30,7 +34,7 @@ public class manageController {
 	@Autowired
 	productDAO productDAO;
 	
-	@RequestMapping(value="products", method = RequestMethod.GET) 
+	@RequestMapping(value="/products", method = RequestMethod.GET) 
 	public ModelAndView manageProducts(@RequestParam(name = "operation", required = false)String operate)
 	{
 		ModelAndView mv = new ModelAndView("page");
@@ -53,11 +57,36 @@ public class manageController {
 		return mv;
 	}
 	
-	@RequestMapping(value="products/save", method = RequestMethod.POST)
+	
+	@RequestMapping(value="/edit/{id}/product", method = RequestMethod.GET) 
+	public ModelAndView editProducts(@PathVariable("id")int id)
+	{
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("UserClickManageProducts",true);
+		mv.addObject("title","Edit Products");
+		Product prod = productDAO.getById(id);
+		mv.addObject("product",prod);
+		mv.addObject("category",dao.getCustomers());
+		
+		return mv;
+	}
+	
+	
+	@RequestMapping(value="/products/save", method = RequestMethod.POST)
 	public String manageProducts(@Valid @ModelAttribute("product")Product product, BindingResult results, Model model,HttpServletRequest request)
 	{
-		
-		new validator().validate(product, results);
+		if(product.getId()==0)
+		{
+			new validator().validate(product, results);
+		}
+		else
+		{
+			if(!product.getFile().getOriginalFilename().equals(""))
+			{
+				new validator().validate(product, results);
+			}
+			
+		}
 		
 		
 		if(results.hasErrors())
@@ -67,7 +96,14 @@ public class manageController {
 			return "page";
 		}
 		
-		productDAO.insert(product);
+		if(product.getId()==0)
+		{
+			productDAO.insert(product);
+		}
+		else
+		{
+			productDAO.update(product);
+		}
 		
 		if(!product.getFile().getOriginalFilename().equals(""))
 		{
@@ -77,5 +113,16 @@ public class manageController {
 		
 		
 		return "redirect:/manage/products?operation=product";
+	}
+	
+	@RequestMapping(value="{id}/product/activation", method = RequestMethod.POST) 
+	@ResponseBody
+	public String changeActiveProducts(@PathVariable("id")int id)
+	{
+		Product product = productDAO.getById(id);
+		Boolean active = product.isActive();
+		product.setActive(!active);
+		productDAO.update(product);
+		return ("Successfully completed the action");
 	}
 }
