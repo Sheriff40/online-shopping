@@ -22,6 +22,13 @@ public class jsonController {
 	@ResponseBody
 	public List<Product> getAll()
 	{
+		return dao.getActiveProducts();
+	}
+	
+	@RequestMapping(value = "/admin/all/products")
+	@ResponseBody
+	public List<Product> getProductsForAdmin()
+	{
 		return dao.getProducts();
 	}
 	

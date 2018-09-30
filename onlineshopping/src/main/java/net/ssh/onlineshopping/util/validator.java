@@ -21,6 +21,7 @@ public class validator implements Validator {
 		if(product.getFile().getOriginalFilename().equals("") || product.getFile()==null)
 		{
 			errors.rejectValue("file", null, "Please insert and image");
+			return;
 		}
 		
 		if(!(product.getFile().getContentType().equals("image/png")||
@@ -28,6 +29,7 @@ public class validator implements Validator {
 						product.getFile().getContentType().equals("image/jpeg")))
 						{
 							errors.rejectValue("file", null, "The file must be a jpeg or png file");
+							return;
 						}
 
 	}

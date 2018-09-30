@@ -39,8 +39,16 @@
 	
 	<link href="${css}/jquery.dataTables.css" rel="stylesheet" >
 	
+	
+	 <!-- Toggle -->
+	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+	
     <!-- Custom styles for this template -->
     <link href="${css}/shop-homepage.css" rel="stylesheet">
+    
+   
+    
+	
 
   </head>
 
@@ -88,7 +96,11 @@
     <!-- Bootstrap core JavaScript -->
     <script src="${js}/jquery.min.js"></script>
     <script src="${js }/bootstrap.bundle.min.js"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    
     <script src="${js}/jquery.dataTables.js"></script>
+    
+    <script src="${js}/bootbox.min.js"></script>
     
 	<script src="${js}/active.js"></script>
   </body>

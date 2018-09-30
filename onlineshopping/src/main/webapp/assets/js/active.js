@@ -125,4 +125,26 @@ $(document).ready(
 				}
 			
 			
+			$(".switch input[type = 'checkbox']").on('change',function(){
+				
+				var checkbox = $(this);
+				var checked = checkbox.prop('checked');
+				alert(checked);
+				var dmsg = (checked)?"Are you sure you want  toactivate":"Are you sure you want to deactivate?";
+				
+				var value = confirm(dmsg)
+					if(value)
+						{
+							//alert("Susseffuly done");
+							alert(checked);
+						}
+					else
+						{
+							checkbox.prop('checked',!checked);
+							alert(checkbox.prop('checked'));
+						}
+				
+				
+			});
+			
 		});

@@ -13,6 +13,7 @@
 			</div>
 
 		</c:if>
+
 	</div>
 	<div class="col-md-offset-2 col-md-8">
 		<div class="panel panel-primary">
@@ -93,6 +94,17 @@
 
 
 					</div>
+
+					<div class="form-group">
+						<label class="control-label col-md-4" for="file">Select
+							the file: </label>
+						<div class="col-md-8">
+							<sf:input type="file" path="file" id="file" />
+							<sf:errors path="file" cssClass="error-body" element="em" />
+						</div>
+
+					</div>
+
 					<div class="form-group">
 						<label class="control-label col-md-4" for="categoryId">Select
 							the category Id: </label>
@@ -102,16 +114,7 @@
 
 						</div>
 					</div>
-					<div class="form-group">
-						<label class="control-label col-md-4" for="file">Select
-							the file: </label>
-						<div class="col-md-8">
-							<sf:input type="file" path="file" id="file"
-								/>
-							<sf:errors path="file" cssClass="error-body" element="em" />
-						</div>
-						
-					</div>
+
 
 					<sf:hidden path="id" />
 					<sf:hidden path="code" />
@@ -125,8 +128,66 @@
 							class="btn btn-success " />
 					</div>
 				</sf:form>
+
 			</div>
 		</div>
+
+	</div>
+
+	<div class='col-xs-12'>
+		<table id="adminProductTable"
+			class="table table-striped table-bordered">
+			<thead>
+				<th>Image</th>
+				<th>Name</th>
+				<th>Brand</th>
+				<th>Price</th>
+				<th>Quantity</th>
+				<th>Active</th>
+				<th>Edit</th>
+			</thead>
+			<tbody>
+				<tr>
+					<th><img alt=""
+						src="${SITE_URL}/resources/images/PRDC15B21825A.jpg/" class = "tableImg"></th>
+					<th>iphone5s</th>
+					<th>Apple</th>
+					<th>20,000</th>
+					<th>20</th>
+					<th>
+						<div class="switch">
+							<input type="checkbox" checked = "checked" >
+						</div>
+					</th>
+					<th><a href='#' class='btn btn-info'>Edit</a></th>
+				</tr>
+				<tr>
+					<th><img alt=""
+						src="${SITE_URL}/resources/images/PRDC15B21825A.jpg/" class = "tableImg">></th>
+					<th>iphone5s</th>
+					<th>Apple</th>
+					<th>20,000</th>
+					<th>20</th>
+					<th>
+						<div class="switch">
+							<input type="checkbox">
+						</div>
+					</th>
+					<th><a href='#' class='btn btn-info'>Edit</a></th>
+				</tr>
+
+			</tbody>
+			<tfoot>
+				<th>Image</th>
+				<th>Name</th>
+				<th>Brand</th>
+				<th>Price</th>
+				<th>Quantity</th>
+				<th>Active</th>
+				<th>Edit</th>
+			</tfoot>
+		</table>
+
 
 	</div>
 </div>
