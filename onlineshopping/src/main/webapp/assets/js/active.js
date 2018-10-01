@@ -2,6 +2,7 @@ $(document)
 		.ready(
 				function() {
 
+					/* Activation of menus */
 					switch (window.menu) {
 
 					case 'home':
@@ -25,6 +26,7 @@ $(document)
 
 					}
 
+					/* View products data table */
 					$table = $('#listProductTable');
 					if ($table.length) {
 						var jsonURL = '';
@@ -51,9 +53,9 @@ $(document)
 									},
 									columns : [
 											{
-												data: 'id'
+												data : 'id'
 											},
-											
+
 											{
 												data : 'code',
 												mRender : function(data, type,
@@ -125,6 +127,8 @@ $(document)
 								});
 					}
 
+					/* Alert Fade Out */
+
 					var $alert = $('.alert');
 					if ($alert.length) {
 						setTimeout(function() {
@@ -132,6 +136,8 @@ $(document)
 						}, 3000)
 
 					}
+
+					/* For Activation of checbox */
 
 					$(".switch input[type = 'checkbox']")
 							.on(
@@ -156,121 +162,178 @@ $(document)
 
 									});
 
+					/* Admin Table for admin */
+
 					var adminTable = $("#adminProductTable");
 					if (adminTable.length) {
 
-						
 						adminTable
 								.DataTable({
 									lengthMenu : [
-											[ -1,2,5,7,10],
-											[ 'All','Two records','Five Records','Seven Recoreds','Ten Records']],
+											[ -1, 2, 5, 7, 10 ],
+											[ 'All', 'Two records',
+													'Five Records',
+													'Seven Recoreds',
+													'Ten Records' ] ],
 									ajax : {
 										url : window.siteURL
-										+ '/json/data/admin/all/products',
+												+ '/json/data/admin/all/products',
 
 										dataSrc : ''
 									},
-									columns: [
-										
-										{
-											data: 'id'
-										},
-										{
-											data: 'code',
-											mRender: function(data,type,row)
-												{
+									columns : [
+
+											{
+												data : 'id'
+											},
+											{
+												data : 'code',
+												mRender : function(data, type,
+														row) {
 													var str = '';
-													str += '<img src = "'+window.siteURL+'/resources/images/'+data+'.jpg " class="tableImg"/>';
+													str += '<img src = "'
+															+ window.siteURL
+															+ '/resources/images/'
+															+ data
+															+ '.jpg " class="tableImg"/>';
 													return str;
 												}
-										},
-										{
-											data: 'name',
-											
-										}
-										,
-										{
-											data: 'brand',
-											
-										}
-										,
-										{
-											data: 'unitPrice',
-											mRender: function(data,type,row)
-												{
+											},
+											{
+												data : 'name',
+
+											},
+											{
+												data : 'brand',
+
+											},
+											{
+												data : 'unitPrice',
+												mRender : function(data, type,
+														row) {
 													return '&#8377;' + data;
 												}
-											
-										}
-										,
-										{
-											data: 'quantity',
-											
-											
-										}
-										,
-										{
-											data: 'active',
-											mRender: function(data,type,row)
+
+											},
 											{
-												var str = '';
-												if(data)
-													{
-														str += "<div class = 'switch'>"
-														str += "<input type = 'checkbox' value = "+row.id+" checked = 'checked'> </div>";
-														
-													}
-												else
-													{
-														str += "<div class = 'switch'>"
-													 	str += "<input type = 'checkbox' value = "+row.id+" /> </div>";
-														
-													}
-												return str;
-											}
-											
-										},
-										{
-											data: 'id',
-											mRender: function(data,type,row)
+												data : 'quantity',
+
+											},
 											{
-												var str = '';
-												return str += '<a href = "'+window.siteURL+'/manage/edit/'+data+'/product/" class="btn btn-success">Edit </a>';
-												
-											}
-										}
-									],
-									initComplete : function()
-									{
-										var api = this.api();
-										api.$(".switch input[type = 'checkbox']")
-										.on(
-												'change',
-												function() {
+												data : 'active',
+												mRender : function(data, type,
+														row) {
+													var str = '';
+													if (data) {
+														str += "<div class = 'switch'>"
+														str += "<input type = 'checkbox' value = "
+																+ row.id
+																+ " checked = 'checked'> </div>";
 
-													var checkbox = $(this);
-													var checked = checkbox.prop('checked');
-
-													var dmsg = (checked) ? "Are you sure you want to activate"
-															: "Are you sure you want to deactivate?";
-													var val = checkbox.prop('value');
-
-													var value = confirm(dmsg)
-													if (value) {
-														/*alert('Modifications have been made to '
-																+ val);*/
-														$.post(window.siteURL+"/manage/"+val+"/product/activation",function(data){
-															alert(data);
-														});
 													} else {
-														checkbox.prop('checked', !checked);
+														str += "<div class = 'switch'>"
+														str += "<input type = 'checkbox' value = "
+																+ row.id
+																+ " /> </div>";
 
 													}
+													return str;
+												}
 
-												});
+											},
+											{
+												data : 'id',
+												mRender : function(data, type,
+														row) {
+													var str = '';
+													return str += '<a href = "'
+															+ window.siteURL
+															+ '/manage/edit/'
+															+ data
+															+ '/product/" class="btn btn-success">Edit </a>';
+
+												}
+											} ],
+									initComplete : function() {
+										var api = this.api();
+										api
+												.$(
+														".switch input[type = 'checkbox']")
+												.on(
+														'change',
+														function() {
+
+															var checkbox = $(this);
+															var checked = checkbox
+																	.prop('checked');
+
+															var dmsg = (checked) ? "Are you sure you want to activate"
+																	: "Are you sure you want to deactivate?";
+															var val = checkbox
+																	.prop('value');
+
+															var value = confirm(dmsg)
+															if (value) {
+																/*
+																 * alert('Modifications
+																 * have been
+																 * made to ' +
+																 * val);
+																 */
+																$
+																		.post(
+																				window.siteURL
+																						+ "/manage/"
+																						+ val
+																						+ "/product/activation",
+																				function(
+																						data) {
+																					alert(data);
+																				});
+															} else {
+																checkbox
+																		.prop(
+																				'checked',
+																				!checked);
+
+															}
+
+														});
 									}
 								});
+					}
+
+					/* Modal form validation */
+
+					var modalForm = $("#mForm");
+					if (modalForm.length) {
+
+						modalForm.validate({
+							rules : {
+								name : {
+									required : true,
+									minlength : 2
+									},
+								description: 
+									{
+										required: true
+									}
+							},
+							messages: {
+								name: 
+									{
+										required: "*Give a name",
+										minLength: "*Length must be 2"
+									},
+							description:
+								{
+									required: "*Give a name"
+								}
+							},
+							errorElement: 'em',
+							errorClass : 'error-body'
+
+						});
 					}
 
 				});
