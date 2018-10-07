@@ -41,7 +41,7 @@ public class productTestClass {
 		product.setUnitPrice(35000);
 		product.setQuantity(5);
 		product.setActive(true);
-		product.setCategoryId(3);
+		product.setCategoryId(5);
 		product.setSupplierId(2);
 		 
 		assertEquals("Could not insert",true,dao.insert(product));
@@ -54,7 +54,7 @@ public class productTestClass {
 		product.setUnitPrice(15000);
 		product.setQuantity(3);
 		product.setActive(true);
-		product.setCategoryId(3);
+		product.setCategoryId(5);
 		product.setSupplierId(2);
 		 
 		assertEquals("Could not insert",true,dao.insert(product));
@@ -78,7 +78,7 @@ public class productTestClass {
 		product.setUnitPrice(70000);
 		product.setQuantity(2);
 		product.setActive(true);
-		product.setCategoryId(1);
+		product.setCategoryId(3);
 		product.setSupplierId(2);
 		 
 		assertEquals("Could not insert",true,dao.insert(product));
@@ -90,7 +90,7 @@ public class productTestClass {
 		product.setUnitPrice(40000);
 		product.setQuantity(0);
 		product.setActive(true);
-		product.setCategoryId(2);
+		product.setCategoryId(1);
 		product.setSupplierId(2);
 		 
 		assertEquals("Could not insert",true,dao.insert(product));
@@ -102,14 +102,14 @@ public class productTestClass {
 		product.setUnitPrice(70000);
 		product.setQuantity(5);
 		product.setActive(true);
-		product.setCategoryId(2);
+		product.setCategoryId(1);
 		product.setSupplierId(1);
 		 
 		assertEquals("Could not insert",true,dao.insert(product));
 		
 		
 		
-		product = dao.getById(2);
+		/*product = dao.getById(2);
 		product.setName("Oppo F5");
 		assertEquals("Could not insert",true,dao.update(product));
 		
@@ -124,6 +124,6 @@ public class productTestClass {
 		
 		assertEquals("Updated data",1,dao.getProductsByCategory(3).size()); 
 		
-		assertEquals("Updated data",1,dao.getLatestActiveProduct(1).size()); 
+		assertEquals("Updated data",1,dao.getLatestActiveProduct(1).size()); */ 
 	}
 }

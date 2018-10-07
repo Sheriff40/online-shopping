@@ -49,6 +49,7 @@ public class CategoryTestClass {
 		assertEquals("Successfully inserted data into table",true,dao.insert(category));
 		
 		/* Update Data */
+		
 		category = dao.getById(2);
 		category.setName("TV");
 		assertEquals("Successfuly fetched category by id",true,dao.update(category));
@@ -60,5 +61,6 @@ public class CategoryTestClass {
 	
 		/* List Data */
 		assertEquals("Successfuly fetched all category",12,dao.getCustomers().size());
+		
 	}
 }

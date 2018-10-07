@@ -25,6 +25,10 @@
               <a class="nav-link" href="${SITE_URL}/manage/products">Manage Products</a>
             </li>
           </ul>
+          <ul class="navbar-nav ml-auto navbar-right">
+          		<li id = "register" class="nav-item"><a href="${SITE_URL}/register" class="nav-link">Sign Up</a></li>
+          		<li class="nav-item"><a href="${SITE_URL}/login" class="nav-link">Login</a></li>
+          </ul>
         </div>
       </div>
     </nav>

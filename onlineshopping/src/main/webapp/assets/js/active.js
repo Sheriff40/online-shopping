@@ -52,21 +52,22 @@ $(document)
 										dataSrc : ''
 									},
 									columns : [
-											{
-												data : 'id'
-											},
-
-											{
-												data : 'code',
-												mRender : function(data, type,
-														row) {
-													return '<img  src = "'
-															+ window.siteURL
-															+ '/resources/images/'
-															+ data
-															+ '.jpg" class="tableImg" />';
-												}
-											},
+										
+										{
+											data: 'id'
+												
+										},
+										{
+											data : 'code',
+											mRender : function(data, type,
+													row) {
+												return '<img  src = "'
+														+ window.siteURL
+														+ '/resources/images/'
+														+ data
+														+ '.jpg" class="tableImg" />';
+											}
+										},
 											{
 												data : 'name'
 											},
@@ -122,7 +123,7 @@ $(document)
 												}
 											}
 
-									]
+								]
 
 								});
 					}
