@@ -23,6 +23,7 @@
 						<div class="col-md-8">
 							<sf:input type="text" id="fname" path="firstName"
 								class="form-control " placeholder="Enter first name" />
+							<sf:errors path="firstName" cssClass="error-body" element="em"></sf:errors>
 						</div>
 
 					</div>
@@ -34,6 +35,7 @@
 						<div class="col-md-8">
 							<sf:input type="text" id="lname" path="lastName"
 								class="form-control " placeholder="Enter last name" />
+							<sf:errors path="lastName" cssClass="error-body" element="em"></sf:errors>
 						</div>
 
 					</div>
@@ -45,17 +47,31 @@
 						<div class="col-md-8">
 							<sf:input type="password" id="upassword" path="password"
 								class="form-control " placeholder="XXXXXXXXX" />
+							<sf:errors path="password" cssClass="error-body" element="em"></sf:errors>
 						</div>
 
 					</div>
 					<div class="form-group">
 
-						<label class="control-label  col-md-4" for="lname">Enter
+						<label class="control-label  col-md-4" for="ucpassword">Confirm
+							password</label>
+
+						<div class="col-md-8">
+							<sf:input type="password" id="ucpassword" path="confirmpassword"
+								class="form-control " placeholder="XXXXXXXXX" />
+							<sf:errors path="confirmpassword" cssClass="error-body" element="em"></sf:errors>
+						</div>
+
+					</div>
+					<div class="form-group">
+
+						<label class="control-label  col-md-4" for="email">Enter
 							email</label>
 
 						<div class="col-md-8">
 							<sf:input type="email" id="uemail" path="email"
 								class="form-control " placeholder="Enter email" />
+								<sf:errors path="email" cssClass="error-body" element="em"></sf:errors>
 						</div>
 
 					</div>
@@ -67,6 +83,7 @@
 						<div class="col-md-8">
 							<sf:input type="number" id="contactNo" path="contactNumber"
 								class="form-control " placeholder="Enter Contact Number" />
+							<sf:errors path="contactNumber" cssClass="error-body" element="em"></sf:errors>
 						</div>
 
 					</div>

@@ -13,6 +13,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 
 
@@ -27,13 +30,21 @@ public class User implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@NotBlank(message = "Give the First Name")
 	private String firstName;
+	@NotBlank(message = "Give the Last Name")
 	private String lastName;
+	@NotBlank(message = "Give the Email")
 	private String email;
 	@Column(name = "contact_no")
+	@NotBlank(message = "Give the Contact no")
 	private String contactNumber;
 	private String role;
+	@NotBlank(message = "Give the Password")
 	private String password;
+	@Transient
+	@NotBlank(message = "Confirm the Password")
+	private String confirmpassword;
 	private Boolean enabled= true;
 	@OneToOne(mappedBy= "user",cascade = CascadeType.ALL)
 	private Cart cart;
@@ -100,6 +111,12 @@ public class User implements Serializable{
 	}
 	public void setAddress(List<Address> address) {
 		this.address = address;
+	}
+	public String getConfirmpassword() {
+		return confirmpassword;
+	}
+	public void setConfirmpassword(String confirmpassword) {
+		this.confirmpassword = confirmpassword;
 	}
 	
 	
