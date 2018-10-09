@@ -8,16 +8,27 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
 public class Address implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@NotBlank(message = "Give the addressLineOne")
 	private String addressLineOne;
+	@NotBlank(message = "Give the addressLineTwo")
 	private String addressLineTwo;
+	@NotBlank(message = "Give the city")
 	private String city;
+	@NotBlank(message = "Give the country")
 	private String country;
+	@NotBlank(message = "Give the postal Code")
 	private String postalCode;
 	private Boolean billing = false;
 	private Boolean shipping = false;
