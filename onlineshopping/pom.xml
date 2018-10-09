@@ -11,6 +11,7 @@
 	<properties>
 		<javaee.version>7.0</javaee.version>
 		<javamvc.version>4.3.6.RELEASE</javamvc.version>
+		<springSecurity.version>4.2.2.RELEASE</springSecurity.version>
 	</properties>
 
 	<dependencies>
@@ -38,6 +39,22 @@
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${springSecurity.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${springSecurity.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${springSecurity.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>net.ssh</groupId>
