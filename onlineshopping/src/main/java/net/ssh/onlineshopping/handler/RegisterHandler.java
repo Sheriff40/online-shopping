@@ -1,8 +1,6 @@
 package net.ssh.onlineshopping.handler;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.binding.message.MessageBuilder;
-import org.springframework.binding.message.MessageContext;
 import org.springframework.stereotype.Component;
 
 import net.ssh.shoppingbackend.dao.userDAO;
@@ -33,33 +31,6 @@ public class RegisterHandler {
 		registerModel.setAddress(address);
 	}
 	
-	public String validate(User user, MessageContext error)
-	
-	{
-		String transitionValue = "success";
-		
-		/* Confirm Passwords */
-		if(!(user.getPassword().equals(user.getConfirmpassword())))
-		{
-			error.addMessage(new MessageBuilder().error()
-					.source("confirmpassword")
-					.defaultText("The passwords do not match").build());
-			transitionValue = "failure";
-		}
-		
-		if (dao.getUserByEmail(user.getEmail())!=null)
-		{
-			error.addMessage(new MessageBuilder().error().source("email")
-					.defaultText("The email already exists").build());
-			transitionValue = "failure";
-		}
-		
-		return transitionValue;
-		/*Check uniqueness of email */
-		
-		
-	}
-	
 	public String saveAll(RegisterModel registerModel)
 	{
 		String transitionMessage = "success";
@@ -79,7 +50,8 @@ public class RegisterHandler {
 			
 			dao.addAddress(add);
 		
-			return transitionMessage;
+		return transitionMessage;
 			
+		
 	}
 }

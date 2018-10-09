@@ -12,19 +12,12 @@
      </on-start>
 	
 	<view-state id="personal" view="flows/register/signup-personal" model="user">
-		<transition on="billing" to="validate"></transition>
+		<transition on="billing" to="billing"></transition>
 		<on-exit>
 			<evaluate expression="registerHandler.save(flowScope.registerModel, user)"></evaluate>
 		</on-exit>
 		
 	</view-state>
-	
-	<action-state id="validate">
-		<evaluate expression="registerHandler.validate(user,messageContext)"></evaluate>	
-		<transition on="success" to="billing"></transition>
-		<transition on="failure" to="personal"></transition>
-	</action-state>
-	
 	<view-state id="billing" view="flows/register/signup-billing" model="address">
 		<transition on="confirm" to="confirm"></transition>
 		<on-exit>
@@ -50,8 +43,7 @@
 	
 	<!-- Global transition -->
 	<global-transitions>
-		
-		<transition on="home" to="home" validate="false"></transition>
+		<transition on="home" to="home"></transition>
 	</global-transitions>
 </flow>
 	
