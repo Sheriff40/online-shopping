@@ -22,15 +22,15 @@ create table user_detail(
 	first_name VARCHAR(50),
 	last_name VARCHAR(50),
 	role VARCHAR(50),
-	enabled boolean;
-	password VARCHAR(50),
+	enabled Boolean,
+	password VARCHAR(60),
 	email VARCHAR(100),
 	contact_no VARCHAR(50),
 	CONSTRAINT pk_user_id PRIMARY KEY(id)
 )
 
 INSERT INTO user_detail (first_name,last_name,role,enabled,password,email,contact_no) 
-VALUES ('Sheriff','Hussain',ADMIN,true,'admin123','sheriffhussain40@gmail.com','4428864');
+VALUES ('Sheriff','Hussain','ADMIN',true,'admin123','sheriffhussain40@gmail.com','4428864');
 
 
 create table product(

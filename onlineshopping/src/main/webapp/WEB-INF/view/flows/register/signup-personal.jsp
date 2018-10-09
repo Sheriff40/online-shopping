@@ -61,8 +61,9 @@
 							<sf:errors path="confirmpassword" cssClass="error-body"
 								element="em"></sf:errors>
 						</div>
-
-						<label class="control-label  col-md-4" for="lname">Enter
+					</div>
+					<div class="form-group">
+						<label class="control-label  col-md-4" for="uemail">Enter
 							email</label>
 
 						<div class="col-md-8">

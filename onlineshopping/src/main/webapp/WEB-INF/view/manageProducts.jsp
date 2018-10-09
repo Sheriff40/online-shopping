@@ -130,12 +130,49 @@
 							class="btn btn-success " />
 					</div>
 				</sf:form>
+				<div class="text-right">
+					<button class="btn btn-warning  btn-sm" data-toggle="modal"
+						data-target="#modalForm">Add new category</button>
+				</div>
 			</div>
 
 		</div>
 	</div>
 
+	<div class="col-md-offset-4 col-md-8">
+		<div class="modal" tabindex="-1" role="dialog" id="modalForm">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Add Category</h5>
 
+						<button type="button" class="close btn-sm" data-dismiss="modal">
+							&times;</button>
+
+					</div>
+					<div class="modal-body">
+						<sf:form id="mForm" action="${SITE_URL}/manage/category/save"
+							method="POST" modelAttribute="cate">
+							<div class="form-group">
+								<label class="label-control">Category Name</label>
+								<sf:input type="text" path="name" id="cname"
+									class="form-control" />
+
+							</div>
+							<div class="form-group">
+								<label class="label-control">Description</label>
+								<sf:textarea rows="8" cols="55" path="description"
+									id="cdescription" class="form-control" />
+
+							</div>
+							<input type="submit" id="submit" class="btn btn-danger" />
+						</sf:form>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<div class='col-md-12'>
 		<table id="adminProductTable"

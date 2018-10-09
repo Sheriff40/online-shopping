@@ -111,4 +111,15 @@ public class pageController {
 		return mv;
 	}
 	
+	@RequestMapping(value = "/access-denied")
+	public ModelAndView accessDenied()
+	{
+		ModelAndView mv = new ModelAndView("error");
+		mv.addObject("title", "Access Denied");
+		mv.addObject("errorTitle", "Access Denied");
+		mv.addObject("errorDescription","This section does not belong to you");
+		return mv;
+	}
+	
+	
 }

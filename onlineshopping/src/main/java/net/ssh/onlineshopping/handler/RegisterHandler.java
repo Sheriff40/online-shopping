@@ -3,6 +3,7 @@ package net.ssh.onlineshopping.handler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import net.ssh.shoppingbackend.dao.userDAO;
@@ -16,6 +17,9 @@ public class RegisterHandler {
 
 	@Autowired
 	userDAO dao;
+	
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 
 	public RegisterModel init() {
 		return new RegisterModel();
@@ -61,6 +65,7 @@ public class RegisterHandler {
 			cart.setUser(user);
 			user.setCart(cart);
 		}
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		dao.addUser(user);
 
 		Address add = registerModel.getAddress();

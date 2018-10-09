@@ -60,6 +60,7 @@
 
 	<div class="container">
 
+
 		<c:if test="${not empty message}">
 			<div class=" col-md-offset-1 col-md-10">
 				<div class="alert alert-danger alert-dismissible fade in">
