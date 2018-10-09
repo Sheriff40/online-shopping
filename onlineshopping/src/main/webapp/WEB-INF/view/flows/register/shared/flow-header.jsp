@@ -19,7 +19,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> onlineshopping - ${title}</title>
+    <title> onlineshopping - Sign Up</title>
 	<style>
 		#navbarResponsive li a:active
 		{
