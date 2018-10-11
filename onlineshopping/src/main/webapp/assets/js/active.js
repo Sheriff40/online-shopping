@@ -44,7 +44,7 @@ $(document)
 								.DataTable({
 									lengthMenu : [
 											[ -1, 1, 3, 5, 7 ],
-											[ 'All', '1 Records', '3 Records',
+											[ 'All','1 Records', '3 Records',
 													'5 Records', '7 Records' ] ],
 									ajax : {
 										url : jsonURL,
