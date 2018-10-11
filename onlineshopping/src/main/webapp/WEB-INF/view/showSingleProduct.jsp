@@ -4,7 +4,7 @@
 			<ol class="breadcrumb">
 				<li><a href="${SITE_URL}/home">Home</a></li>
 				<li><a href="${SITE_URL}/show/all/products">All products</a> </li>
-				<li class="active">${product.name } </li>
+				<li class="active">${product.name} </li>
 			</ol>
 		</div>
 	</div>

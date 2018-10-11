@@ -100,13 +100,18 @@ public class pageController {
 	}
 	
 	@RequestMapping(value = "/login")
-	public ModelAndView loginController(@RequestParam(name="error",required= false)String error)
+	public ModelAndView loginController(@RequestParam(name="error",required= false)String error,
+			@RequestParam(name="logout",required = false)String logout)
 	{
 		ModelAndView mv = new ModelAndView("login");
 		mv.addObject("title", "Login");
 		if(error!=null)
 		{
 			mv.addObject("message", "Wrong Username Or Password");
+		}
+		if(logout!=null)
+		{
+			mv.addObject("logoutMsg", "logging out");
 		}
 		return mv;
 	}

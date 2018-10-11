@@ -94,6 +94,8 @@
 
 	</div>
 
-
+	<script>
+		window.role = '${userModel.role}';
+	</script>
 
 </div>

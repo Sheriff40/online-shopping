@@ -44,7 +44,7 @@ $(document)
 								.DataTable({
 									lengthMenu : [
 											[ -1, 1, 3, 5, 7 ],
-											[ 'All','1 Records', '3 Records',
+											[ 'All', '1 Records', '3 Records',
 													'5 Records', '7 Records' ] ],
 									ajax : {
 										url : jsonURL,
@@ -52,22 +52,22 @@ $(document)
 										dataSrc : ''
 									},
 									columns : [
-										
-										{
-											data: 'id'
-												
-										},
-										{
-											data : 'code',
-											mRender : function(data, type,
-													row) {
-												return '<img  src = "'
-														+ window.siteURL
-														+ '/resources/images/'
-														+ data
-														+ '.jpg" class="tableImg" />';
-											}
-										},
+
+											{
+												data : 'id'
+
+											},
+											{
+												data : 'code',
+												mRender : function(data, type,
+														row) {
+													return '<img  src = "'
+															+ window.siteURL
+															+ '/resources/images/'
+															+ data
+															+ '.jpg" class="tableImg" />';
+												}
+											},
 											{
 												data : 'name'
 											},
@@ -108,22 +108,38 @@ $(document)
 															+ data
 															+ '/product" class="btn btn-success btn-xs "><span class="glyphicon glyphicon-eye-open"></span> </a> &nbsp ';
 
-													if (row.quantity == 0) {
-														str += '<strike><a href="javascript:void(0)" class="btn btn-primary btn-xs disabled"><span class="glyphicon glyphicon-shopping-cart"></span></a></strike>'
-													} else {
-														str += '<a href="'
-																+ window.siteURL
-																+ '/add/cart/'
-																+ data
-																+ '/product" class="btn btn-primary btn-xs "><span class="glyphicon glyphicon-shopping-cart"></span></a>'
+													if (window.role == "ADMIN") {
+														
+														str += '<a href ="'
+															+ window.siteURL
+															+ '/manage/edit/'
+															+ data
+															+ '/product" class="btn btn-warning btn-xs "><span class="glyphicon glyphicon-pencil"></span> </a> &nbsp ';
 
-													}
 
-													return str;
+														
+													} else  {
+														
+														if (row.quantity == 0) {
+
+															str += '<strike><a href="javascript:void(0)" class="btn btn-primary btn-xs disabled"><span class="glyphicon glyphicon-shopping-cart"></span></a></strike>'
+
+														} else {
+															str += '<a href="'
+																	+ window.siteURL
+																	+ '/add/cart/'
+																	+ data
+																	+ '/product" class="btn btn-primary btn-xs "><span class="glyphicon glyphicon-shopping-cart"></span></a>'
+
+														}
+
+															}
+
+														return str;
 												}
 											}
 
-								]
+									]
 
 								});
 					}
@@ -314,24 +330,21 @@ $(document)
 								name : {
 									required : true,
 									minlength : 2
-									},
-								description: 
-									{
-										required: true
-									}
-							},
-							messages: {
-								name: 
-									{
-										required: "*Give a name",
-										minLength: "*Length must be 2"
-									},
-							description:
-								{
-									required: "*Give a name"
+								},
+								description : {
+									required : true
 								}
 							},
-							errorElement: 'em',
+							messages : {
+								name : {
+									required : "*Give a name",
+									minLength : "*Length must be 2"
+								},
+								description : {
+									required : "*Give a name"
+								}
+							},
+							errorElement : 'em',
 							errorClass : 'error-body'
 
 						});

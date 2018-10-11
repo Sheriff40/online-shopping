@@ -51,11 +51,22 @@
 
 
 
-
 </head>
 
 <body>
 
+
+	<c:if test="${not empty logoutMsg}">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+
+					<li class="nav-item" id="home"><a class="nav-link"
+						href="${SITE_URL}/home">Home</a></li>
+				</ul>
+			</div>
+		</nav>
+	</c:if>
 
 
 	<div class="container">
@@ -65,8 +76,7 @@
 			<div class=" col-md-offset-1 col-md-10">
 				<div class="alert alert-danger alert-dismissible fade in">
 					<button class="pull-right close" data-dismiss="alert">
-						&times;
-					</button>
+						&times;</button>
 					${message }
 				</div>
 			</div>
@@ -92,7 +102,9 @@
 							<button type="submit" name="submit" value="submit"
 								class="btn btn-success">Submit</button>
 						</div>
-
+						<hr>
+							<p>Wanna explore as a guest: <a href="${SITE_URL}/">Guest</a><p>
+						
 					</form>
 				</div>
 			</div>
