@@ -39,7 +39,7 @@
 									</div>
 								</div>
 							</td>
-							<td data-th="Price">&#8377; - ${cartLine.product.unitPrice}
+							<td data-th="Price">&#8377;${cartLine.product.unitPrice}
 							</td>
 							<td data-th="Quantity"><input type="number"
 								class="form-control text-center"
@@ -60,14 +60,14 @@
 				</tbody>
 				<tfoot>
 					<tr class="visible-xs">
-						<td class="text-center"><strong>Total 1.99</strong></td>
+						<td class="text-center"><strong>Total ${userModel.cart.grandTotal}</strong></td>
 					</tr>
 					<tr>
 						<td><a href="#" class="btn btn-warning"><i
 								class="glyphicon glyphicon-shopping-cart"></i> Continue Shopping</a></td>
 						<td colspan="2" class="hidden-xs"></td>
 						<td class="hidden-xs text-center"><strong> &#8377;
-								1.99</strong></td>
+								${userModel.cart.grandTotal}</strong></td>
 						<td><a href="${SITE_URL}/checkout"
 							class="btn btn-success btn-block">Checkout <i
 								class="glyphicon glyphicon-chevron-right"></i></a></td>

@@ -18,6 +18,9 @@ $(document)
 					case 'Manage Products':
 						$('#manageproducts').addClass('active');
 						break;
+					case 'Cart':
+						$('#fullnamedrop').addClass('active');
+						break;
 					default: {
 						$("#listproducts").addClass('active');
 						$('#a_' + menu).addClass('active');

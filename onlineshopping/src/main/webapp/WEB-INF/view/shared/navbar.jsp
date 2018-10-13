@@ -35,8 +35,8 @@
 						class="nav-link">Login</a></li>
 					</security:authorize>
 					<security:authorize access="isAuthenticated()">
-						<li class="nav-item dropdown "><a href="javascript:void(0)"
-							class="dropdown-toggle nav-link" data-toggle="dropdown">${userModel.fullName}</a><span
+						<li  id= "fullnamedrop" class="nav-item dropdown " ><a href="javascript:void(0)"
+							class="dropdown-toggle nav-link"  data-toggle="dropdown" >${userModel.fullName}</a><span
 							class="glyphicon glyphicon-caret"></span>
 							<ul class="dropdown-menu ">
 								<security:authorize access="hasAuthority('USER')">
