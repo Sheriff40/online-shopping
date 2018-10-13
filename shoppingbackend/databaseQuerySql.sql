@@ -52,3 +52,19 @@ create table product(
 
 INSERT INTO product (name,brand,description,unit_price,quantity,is_active,category_id,supplier_id)
 VALUES ('Bravo LED','Bravo','Bravo Full HD TV 1080p',85000,0,true,2,1);
+
+CREATE TABLE cart_line (
+	id IDENTITY,
+	cart_id INT,
+	total DECIMAL(10,2),
+	product_int INT,
+	product_count INT,
+	buying_price DECIMAL(10,2),
+	is_available BOOLEAN,
+	CONSTRAINT fk_cart_product_int FOREIGN KEY (product_int) REFERENCES product(id),
+	CONSTRAINT fk_cart_cart_id FOREIGN KEY (cart_id) REFERENCES cart(id),
+	CONSTRAINT pk_cart_id PRIMARY KEY (id)
+);
+	
+	
+

@@ -105,4 +105,5 @@ public class ProductDAOImpl implements productDAO{
 		.getResultList();
 	}
 
+	
 }

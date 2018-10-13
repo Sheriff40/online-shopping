@@ -89,6 +89,10 @@
   		<%@ include file="manageProducts.jsp" %>
   	</c:if>
    
+	<c:if test="${UserClickCart == true}" >
+		<%@ include file="cart.jsp" %> 
+	</c:if>
+
 
     <!-- Footer -->
     <%@ include file="./shared/footer.jsp" %>

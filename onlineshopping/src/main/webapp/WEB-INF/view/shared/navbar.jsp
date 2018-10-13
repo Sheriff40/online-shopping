@@ -40,7 +40,7 @@
 							class="glyphicon glyphicon-caret"></span>
 							<ul class="dropdown-menu ">
 								<security:authorize access="hasAuthority('USER')">
-									<li class="dropdown-item"><a href="#"><span
+									<li class="dropdown-item"><a href="${SITE_URL}/cart/show"><span
 										class="glyphicon glyphicon-shopping-cart glyphicon-sm"><span class="badge">${userModel.cart.cartLine} </span>  &#8377;-${userModel.cart.grandTotal}</span></a></li>
 									<li class="divider" for="seperator"></li>
 								</security:authorize>

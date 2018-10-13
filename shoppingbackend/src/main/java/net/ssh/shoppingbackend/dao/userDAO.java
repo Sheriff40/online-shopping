@@ -11,7 +11,7 @@ public interface userDAO {
 	public boolean addUser(User user);
 	public User getUserByEmail(String email);
 	
-	public boolean updateCart(Cart cart);
+
 	public boolean addAddress(Address address);
 	
 	public Address getBillingAddress(User user);
