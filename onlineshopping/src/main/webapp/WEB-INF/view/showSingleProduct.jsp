@@ -38,7 +38,7 @@
 			
 			<c:choose>
 				<c:when test="${product.quantity > 1}" >
-					<a href = "${SITE_URL}/add/cart/${product.id}/product" class="btn btn-success"> <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart </a> &nbsp;
+					<a href = "${SITE_URL}/cart/add/${product.id}/product" class="btn btn-success"> <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart </a> &nbsp;
 				</c:when>
 				<c:otherwise >
 					<a href = "javascript:void(0)" class="btn btn-success disabled">

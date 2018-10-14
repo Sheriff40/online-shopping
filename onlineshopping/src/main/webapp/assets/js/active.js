@@ -130,7 +130,7 @@ $(document)
 														} else {
 															str += '<a href="'
 																	+ window.siteURL
-																	+ '/add/cart/'
+																	+ '/cart/add/'
 																	+ data
 																	+ '/product" class="btn btn-primary btn-xs "><span class="glyphicon glyphicon-shopping-cart"></span></a>'
 

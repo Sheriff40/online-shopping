@@ -11,58 +11,59 @@ import org.springframework.web.servlet.ModelAndView;
 import net.ssh.onlineshopping.service.CartLineServiceClass;
 import net.ssh.shoppingbackend.dao.CartLineDAO;
 
-
 @Controller
 @RequestMapping(value = "/cart")
 public class CartContoller {
-	
+
 	@Autowired
 	private CartLineServiceClass cartService;
-	
+
 	@Autowired
 	CartLineDAO lineDAO;
-	
+
 	@RequestMapping(value = "/show")
-	
-	public ModelAndView showCart(@RequestParam(value = "result",required=false) String result)
-	{
-		
+
+	public ModelAndView showCart(@RequestParam(value = "result", required = false) String result) {
+
 		ModelAndView mv = new ModelAndView("page");
-		if(result!=null)
-		{
-			switch(result)
-			{
-				case("true"):
-					mv.addObject("message","CartLine Updated Successfully");
-				 break;
-				case("false"):
-					mv.addObject("error","CartLine Cannot be update Successfully");
-				 break;
-				
+		if (result != null) {
+			switch (result) {
+			case ("true"):
+				mv.addObject("message", "CartLine Updated Successfully");
+				break;
+			case ("false"):
+				mv.addObject("error", "CartLine Cannot be update Successfully");
+				break;
+			case("maximum"):
+				mv.addObject("maximum", "Sorry the specified quantity of the product is not available");
+				break;
 			}
 		}
-		
-		mv.addObject("title","Cart");
-		mv.addObject("UserClickCart",true );
+
+		mv.addObject("title", "Cart");
+		mv.addObject("UserClickCart", true);
 		mv.addObject("carts", cartService.getCartLine());
 		return mv;
 	}
-	
+
+	@RequestMapping(value = "/add/{productId}/product")
+	public String addCartLine(@PathVariable("productId") int id) {
+		String response = cartService.addCartLine(id);
+		return "redirect:/cart/show/?"+ response;
+	}
 
 	@RequestMapping(value = "/{cartId}/update/")
-	
-	public String updateCart(@PathVariable("cartId")int id, @RequestParam("count")int count)
-	{
-		String response = cartService.updateCartLine(id,count);
-		return "redirect:/cart/show/?"+response;
+
+	public String updateCart(@PathVariable("cartId") int id, @RequestParam("count") int count) {
+		String response = cartService.updateCartLine(id, count);
+		return "redirect:/cart/show/?" + response;
 	}
-	
+
 	@RequestMapping(value = "/{id}/delete")
-	public String deleteCartLine(@PathVariable("id")int id)
-	{
-			String response = cartService.deleteCartLine(id);
-			return "redirect:/cart/show/?"+response;
-		
+	public String deleteCartLine(@PathVariable("id") int id) {
+		String response = cartService.deleteCartLine(id);
+		return "redirect:/cart/show/?" + response;
+
 	}
-	
+
 }

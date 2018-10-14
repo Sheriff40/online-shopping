@@ -23,6 +23,10 @@
 				<c:if test="${not empty error}">
 					<div class="alert alert-danger">${error}</div>
 				</c:if>
+				
+				<c:if test="${not empty maximum}">
+					<div class="alert alert-danger">${maximum}</div>
+				</c:if>
 
 			</div>
 

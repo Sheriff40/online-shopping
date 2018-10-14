@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import net.ssh.shoppingbackend.dao.CartLineDAO;
+import net.ssh.shoppingbackend.dao.productDAO;
 import net.ssh.shoppingbackend.dto.Cart;
 import net.ssh.shoppingbackend.dto.CartLine;
 import net.ssh.shoppingbackend.dto.Product;
@@ -21,6 +22,9 @@ public class CartLineServiceClass {
 
 	@Autowired
 	private CartLineDAO lineDAO;
+
+	@Autowired
+	private productDAO dao;
 
 	public Cart getCart() {
 		return ((UserModel) session.getAttribute("userModel")).getCart();
@@ -40,6 +44,7 @@ public class CartLineServiceClass {
 			double oldTotal = cartLine.getTotal();
 			if (product.getQuantity() < count) {
 				cartLine.setProductCount(product.getQuantity());
+				return "result=maximum";
 			} else {
 				cartLine.setProductCount(count);
 
@@ -67,11 +72,37 @@ public class CartLineServiceClass {
 			Cart cart = this.getCart();
 			cart.setCartLine(cart.getCartLine() - 1);
 			cart.setGrandTotal(cart.getGrandTotal() - cartline.getTotal());
-
+			lineDAO.updateCart(cart);
 			lineDAO.delete(id);
 			return "result=true";
 		}
 
-	
+	}
+
+	public String addCartLine(int id) {
+
+		Product product = dao.getById(id);
+		Cart cart = this.getCart();
+		if (lineDAO.getByProductAndCartId(cart.getId(), product.getId()) == null) {
+			CartLine cartLine = new CartLine();
+			cartLine.setCartId(cart.getId());
+			cartLine.setProduct(product);
+			cartLine.setBuyingPrice(product.getUnitPrice());
+			cartLine.setProductCount(1);
+			cartLine.setTotal(product.getUnitPrice());
+			cartLine.setAvailable(true);
+			lineDAO.insert(cartLine);
+
+			/* Updating Cart */
+			cart.setCartLine(cart.getCartLine() + 1);
+			cart.setGrandTotal(cart.getGrandTotal() + cartLine.getTotal());
+			lineDAO.updateCart(cart);
+
+			return "result=true";
+		} else {
+			return "result=false";
+
+		}
+
 	}
 }

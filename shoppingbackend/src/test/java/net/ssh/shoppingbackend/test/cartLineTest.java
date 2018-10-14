@@ -60,13 +60,7 @@ public class cartLineTest {
 		
 		assertEquals("wrong",true,lineDAO.updateCart(cart)); 
 		
-	
-		//assertEquals("wrong",2, lineDAO.getByCartId(cart.getId()).size());
-		
-		
-		
-		
-		
+		assertEquals("wrong",2, lineDAO.getByCartId(cart.getId()).size());
 		
 	}
 	
