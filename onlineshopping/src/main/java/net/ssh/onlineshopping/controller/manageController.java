@@ -1,6 +1,5 @@
 package net.ssh.onlineshopping.controller;
 
-import java.io.Console;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;

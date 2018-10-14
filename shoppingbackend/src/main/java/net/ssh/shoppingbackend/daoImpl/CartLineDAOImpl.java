@@ -2,8 +2,6 @@ package net.ssh.shoppingbackend.daoImpl;
 
 import java.util.List;
 
-import javax.persistence.Query;
-
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -81,20 +79,18 @@ public class CartLineDAOImpl implements CartLineDAO {
 		}
 	}
 
-	
 	@Override
 	public List<CartLine> getByCartId(int cartId) {
 		try {
 			String sql = "FROM CartLine WHERE cartId = :cartId";
-			return sessionFactory.getCurrentSession().createQuery(sql,CartLine.class).
-					setParameter("cartId", cartId).getResultList();
+			return sessionFactory.getCurrentSession().createQuery(sql, CartLine.class).setParameter("cartId", cartId)
+					.getResultList();
 
 		} catch (Exception ex) {
 			return null;
 		}
 	}
 
-	
 	@Override
 	public boolean updateCart(Cart cart) {
 		try {
@@ -103,6 +99,20 @@ public class CartLineDAOImpl implements CartLineDAO {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			return false;
+		}
+	}
+
+	@Override
+	public boolean delete(int id) {
+
+		CartLine cartline = this.getById(id);
+
+		try {
+			sessionFactory.getCurrentSession().delete(cartline);
+			return true;
+		} catch (Exception ex) {
+			return false;
+
 		}
 	}
 

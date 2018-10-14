@@ -12,7 +12,7 @@ public interface CartLineDAO {
 	public CartLine getById(int id);
 	public List<CartLine> getCartLine();
 	public boolean updateCart(Cart cart);
-	
+	public boolean delete(int id);
 	/* Extra methods */
 	public List<CartLine> getAvailableLine();
 	public CartLine getByProductAndCartId(int cartId, int productId);
