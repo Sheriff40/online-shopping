@@ -43,10 +43,10 @@
 							</td>
 							<td data-th="Quantity"><input type="number"
 								class="form-control text-center"
-								value="${cartLine.productCount }"></td>
+								value="${cartLine.productCount}" min = "1" max = "3" id= "count_${cartLine.id}"></td>
 							<td data-th="Subtotal" class="text-center">${cartLine.total}</td>
 							<td class="actions" data-th="">
-								<button class="btn btn-info btn-sm">
+								<button class="btn btn-info btn-sm " name="refresh" value="${cartLine.id}">
 									<i class="glyphicon glyphicon-refresh"></i>
 								</button>
 								<button class="btn btn-danger btn-sm">
@@ -63,7 +63,7 @@
 						<td class="text-center"><strong>Total ${userModel.cart.grandTotal}</strong></td>
 					</tr>
 					<tr>
-						<td><a href="#" class="btn btn-warning"><i
+						<td><a href="${SITE_URL}/show/all/products" class="btn btn-warning"><i
 								class="glyphicon glyphicon-shopping-cart"></i> Continue Shopping</a></td>
 						<td colspan="2" class="hidden-xs"></td>
 						<td class="hidden-xs text-center"><strong> &#8377;

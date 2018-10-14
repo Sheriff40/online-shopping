@@ -353,4 +353,30 @@ $(document)
 						});
 					}
 
-				});
+				$("button[name='refresh']").on("click",function(){
+					var cartId = $(this).attr("value");
+					
+					var originalValue = $("#count_"+ cartId).attr("value");
+					
+					var currentValue = $("#count_"+ cartId).val();
+					
+					if(originalValue != currentValue)
+						{
+						
+							if(currentValue < 1 || currentValue > 3)
+								{
+									$("#count_"+cartId).val(originalValue);
+									alert("The value should be 1 or more, and less then or equal to 3");
+								}
+							else
+								{
+								var updateUrl =  window.siteURL + '/cart/' + cartId + '/update/?count=' + currentValue;
+								window.location.href = updateUrl; 
+							
+								}
+						}
+					
+				})
+				
+					
+		});

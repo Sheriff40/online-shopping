@@ -1,116 +1,118 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
-<spring:url var ="css" value="/resources/css"></spring:url>
-<spring:url var ="js" value="/resources/js"></spring:url>
-<spring:url var ="images" value="/resources/images"></spring:url>
+<spring:url var="css" value="/resources/css"></spring:url>
+<spring:url var="js" value="/resources/js"></spring:url>
+<spring:url var="images" value="/resources/images"></spring:url>
 
-<c:set var ="SITE_URL" value="${pageContext.request.contextPath }"></c:set>
+<c:set var="SITE_URL" value="${pageContext.request.contextPath }"></c:set>
 
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
 
-    <title> onlineshopping - ${title}</title>
-	<style>
-		#navbarResponsive li a:active
-		{
-			background:black;
-		}
-	</style>
-	<script>
-		window.menu = '${title}';
-		window.siteURL = '${SITE_URL}';
-	</script>
+<title>onlineshopping - ${title}</title>
+<style>
+#navbarResponsive li a:active {
+	background: black;
+}
+</style>
+<script>
+	window.menu = '${title}';
+	window.siteURL = '${SITE_URL}';
+</script>
 
-    <!-- Bootstrap core CSS -->
-    <link href="${css}/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap core CSS -->
+<link href="${css}/bootstrap.min.css" rel="stylesheet">
 
-	<!-- Bootstrap-sketchy-theme -->
-	<link href="${css}/bootstrap-sketchy-theme.css" rel="stylesheet">
-	
-	<link href="${css}/jquery.dataTables.css" rel="stylesheet" >
-	
-	
-	 <!-- Toggle -->
-	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-	
-    <!-- Custom styles for this template -->
-    <link href="${css}/shop-homepage.css" rel="stylesheet">
-    
-   
-    
-	
+<!-- Bootstrap-sketchy-theme -->
+<link href="${css}/bootstrap-sketchy-theme.css" rel="stylesheet">
 
-  </head>
+<link href="${css}/jquery.dataTables.css" rel="stylesheet">
 
-  <body>
 
-    <!-- Navigation -->
-    <%@ include file="./shared/navbar.jsp" %>
-    
-    <!-- Page Content -->
-    
-    <!-- Loading Home Content -->
-   	<c:if test="${UserClickHome == true}">
-   			<%@ include file="home.jsp" %>
-   	</c:if>
-   	
-   	<!-- Loading About Content -->
-   	<c:if test="${UserClickAbout == true}">
-   			<%@ include file="about.jsp" %>
-   	</c:if>
-   	
-   	<!-- Loading Contact Content -->
-   	<c:if test="${UserClickContact == true}">
-   			<%@ include file="contact.jsp" %>
-   	</c:if>
-   
-   <!-- Loading Products --->
-  	<c:if test="${UserClickShowAll == true or UserClickIdProduct == true}">
-  		<%@ include file="showProduct.jsp" %>
-  	</c:if>
-   
-   <!-- Loading Single Products --->
-  	<c:if test="${UserClickSingleProduct == true}">
-  		<%@ include file="showSingleProduct.jsp" %>
-  	</c:if>
-  
-  	 <!-- Loading Single Products --->
-  	<c:if test="${UserClickManageProducts == true}">
-  		<%@ include file="manageProducts.jsp" %>
-  	</c:if>
-   
-	<c:if test="${UserClickCart == true}" >
-		<%@ include file="cart.jsp" %> 
+<!-- Toggle -->
+<link
+	href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css"
+	rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="${css}/shop-homepage.css" rel="stylesheet">
+
+
+
+
+
+</head>
+
+<body>
+
+	<!-- Navigation -->
+	<%@ include file="./shared/navbar.jsp"%>
+
+	<!-- Page Content -->
+
+	<!-- Loading Home Content -->
+	<c:if test="${UserClickHome == true}">
+		<%@ include file="home.jsp"%>
 	</c:if>
 
+	<!-- Loading About Content -->
+	<c:if test="${UserClickAbout == true}">
+		<%@ include file="about.jsp"%>
+	</c:if>
 
-    <!-- Footer -->
-    <%@ include file="./shared/footer.jsp" %>
+	<!-- Loading Contact Content -->
+	<c:if test="${UserClickContact == true}">
+		<%@ include file="contact.jsp"%>
+	</c:if>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="${js}/jquery.min.js"></script>
-    
-    <script src="${js}/jquery.validate.js"></script>
-    <script src="${js }/bootstrap.bundle.min.js"></script>
-    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-    
-    <script src="${js}/jquery.dataTables.js"></script>
-    
-    <script src="${js}/bootbox.min.js"></script>
-    
-    
-    
+	<!-- Loading Products --->
+	<c:if test="${UserClickShowAll == true or UserClickIdProduct == true}">
+		<%@ include file="showProduct.jsp"%>
+	</c:if>
+
+	<!-- Loading Single Products --->
+	<c:if test="${UserClickSingleProduct == true}">
+		<%@ include file="showSingleProduct.jsp"%>
+	</c:if>
+
+	<!-- Loading Single Products --->
+	<c:if test="${UserClickManageProducts == true}">
+		<%@ include file="manageProducts.jsp"%>
+	</c:if>
+
+	<c:if test="${UserClickCart == true}">
+		<%@ include file="cart.jsp"%>
+	</c:if>
+
+	<!-- Footer -->
+	<%@ include file="./shared/footer.jsp"%>
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="${js}/jquery.min.js"></script>
+
+	<script src="${js}/jquery.validate.js"></script>
+	<script src="${js }/bootstrap.bundle.min.js"></script>
+	<script
+		src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+	<script src="${js}/jquery.dataTables.js"></script>
+
+	<script src="${js}/bootbox.min.js"></script>
+
+
+
 	<script src="${js}/active.js"></script>
-  </body>
+</body>
 
 </html>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import net.ssh.shoppingbackend.dao.CartLineDAO;
 import net.ssh.shoppingbackend.dto.Cart;
 import net.ssh.shoppingbackend.dto.CartLine;
+import net.ssh.shoppingbackend.dto.Product;
 import net.ssh.shoppingbackend.dto.UserModel;
 
 @Service(value = "cartService")
@@ -18,7 +19,7 @@ public class CartLineServiceClass {
 	private HttpSession session;
 	
 	@Autowired
-	private CartLineDAO linedao;
+	private CartLineDAO lineDAO;
 	
 	
 	
@@ -29,7 +30,34 @@ public class CartLineServiceClass {
 	
 	public List<CartLine> getCartLine()
 	{
-		return linedao.getByCartId(this.getCart().getId());		
+		return lineDAO.getByCartId(this.getCart().getId());		
 	}
 	
+	
+	public String updateCartLine(int id, int count)
+	{
+		CartLine cartLine = lineDAO.getById(id);
+		
+		if(cartLine == null)
+		{
+			return "false";
+		}
+		else
+		{
+			Product product = cartLine.getProduct();
+			double oldTotal = cartLine.getTotal();
+			cartLine.setProductCount(count);
+			cartLine.setTotal(product.getUnitPrice() * count);
+			lineDAO.update(cartLine);
+			
+			Cart cart = this.getCart();
+			cart.setGrandTotal(cart.getGrandTotal() - oldTotal + cartLine.getTotal());
+			lineDAO.updateCart(cart);
+			
+			return "true";
+		}
+		
+		
+		
+	}
 }
