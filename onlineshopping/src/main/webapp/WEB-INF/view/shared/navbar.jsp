@@ -46,7 +46,7 @@
 								</security:authorize>
 								
 								
-								<li class="dropdown-item"><a href="${SITE_URL}/logout">Logout</a></li>
+								<li class="dropdown-item"><a href="${SITE_URL}/logout-user">Logout</a></li>
 							</ul></li>
 					</security:authorize>
 			</ul>

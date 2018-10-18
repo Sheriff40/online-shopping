@@ -17,7 +17,7 @@
 		<div class="container">
 			<div class="col-md-offset-2 col-md-8">
 				<c:if test="${ not empty message}">
-					<div class="alert alert-danger">${message }</div>
+					<div class="alert alert-info">${message }</div>
 				</c:if>
 
 				<c:if test="${not empty error}">

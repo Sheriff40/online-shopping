@@ -81,7 +81,16 @@
 				</div>
 			</div>
 		</c:if>
-
+	
+		<c:if test="${not empty logoutMsg}">
+			<div class=" col-md-offset-1 col-md-10">
+				<div class="alert alert-success alert-dismissible fade in">
+					<button class="pull-right close" data-dismiss="alert">
+						&times;</button>
+					${logoutMsg}
+				</div>
+			</div>
+		</c:if>
 		<div class="col-md-offset-3 col-md-6">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
@@ -98,13 +107,16 @@
 								type="password" name="password" class="form-control"
 								id="password" />
 						</div>
+						<input type="hidden" name="${_csrf.parameterName}"
+							value="${_csrf.token}" />
 						<div class="form-group text-center">
 							<button type="submit" name="submit" value="submit"
 								class="btn btn-success">Submit</button>
 						</div>
 						<hr>
-							<p>Wanna explore as a guest: <a href="${SITE_URL}/">Guest</a><p>
-						
+						<p>
+							Wanna explore as a guest: <a href="${SITE_URL}/">Guest</a>
+						<p>
 					</form>
 				</div>
 			</div>

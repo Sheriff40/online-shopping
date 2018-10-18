@@ -42,11 +42,15 @@ public class CartLineServiceClass {
 		} else {
 			Product product = cartLine.getProduct();
 			double oldTotal = cartLine.getTotal();
-			if (product.getQuantity() < count) {
+			if (product.getQuantity() < count) 
+			{
 				cartLine.setProductCount(product.getQuantity());
 				return "result=maximum";
-			} else {
-				cartLine.setProductCount(count);
+			} 
+			else 
+			{
+			
+			cartLine.setProductCount(count);
 
 			}
 			cartLine.setTotal(product.getUnitPrice() * cartLine.getProductCount());
@@ -83,8 +87,9 @@ public class CartLineServiceClass {
 
 		Product product = dao.getById(id);
 		Cart cart = this.getCart();
-		if (lineDAO.getByProductAndCartId(cart.getId(), product.getId()) == null) {
-			CartLine cartLine = new CartLine();
+		CartLine cartLine = lineDAO.getByProductAndCartId(cart.getId(), product.getId());
+		if (cartLine == null) {
+			cartLine = new CartLine();
 			cartLine.setCartId(cart.getId());
 			cartLine.setProduct(product);
 			cartLine.setBuyingPrice(product.getUnitPrice());
@@ -100,9 +105,21 @@ public class CartLineServiceClass {
 
 			return "result=true";
 		} else {
-			return "result=false";
-
+			String response;
+			int count = cartLine.getProductCount();
+			if(count >= 3)
+			{
+				response =  "result=range";
+			}
+			else
+			{
+				response = this.updateCartLine(cartLine.getId(), cartLine.getProductCount() + 1);	
+				
+			}
+			
+			return response;
 		}
+		
 
 	}
 }

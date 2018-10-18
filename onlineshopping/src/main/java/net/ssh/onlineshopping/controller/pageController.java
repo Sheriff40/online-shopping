@@ -1,6 +1,14 @@
 package net.ssh.onlineshopping.controller;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+import org.springframework.security.web.context.SecurityContextRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -111,10 +119,24 @@ public class pageController {
 		}
 		if(logout!=null)
 		{
-			mv.addObject("logoutMsg", "logging out");
+			mv.addObject("logoutMsg", "User has been Successfully Logged Out");
 		}
 		return mv;
 	}
+	
+
+	@RequestMapping(value = "/logout-user")
+	public String logoutController(HttpServletRequest request, HttpServletResponse response)
+	{
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		if(auth!= null)
+		{
+			new SecurityContextLogoutHandler().logout(request, response, auth);
+			return "redirect:/login?logout=success";
+		}
+		return  null;
+	}
+	
 	
 	@RequestMapping(value = "/access-denied")
 	public ModelAndView accessDenied()

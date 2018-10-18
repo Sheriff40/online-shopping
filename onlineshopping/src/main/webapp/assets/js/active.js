@@ -28,7 +28,19 @@ $(document)
 					}
 
 					}
-
+					
+					//To tackle the csrf token
+					
+					var token = $('meta[name="_csrf"]').attr('content');
+					var header = $('meta[name="_csrf_header"]').attr('content');
+					if(token.length >0 && header.length >0)
+						{
+							$(document).ajaxSend(function(e,xhr,options){
+								xhr.setRequestHeader(header,token);
+							});
+						}
+					
+					
 					/* View products data table */
 					$table = $('#listProductTable');
 					if ($table.length) {
