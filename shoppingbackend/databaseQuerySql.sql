@@ -1,6 +1,6 @@
 FOR CATEGORY
 
-create table category (
+create table Category (
 id IDENTITY,
 name VARCHAR(255),
 description VARCHAR(255),
@@ -33,7 +33,7 @@ INSERT INTO user_detail (first_name,last_name,role,enabled,password,email,contac
 VALUES ('Sheriff','Hussain','ADMIN',true,'admin123','sheriffhussain40@gmail.com','4428864');
 
 
-create table product(
+create table Product(
 	id IDENTITY,
 	code VARCHAR(50),
 	name VARCHAR(50),
@@ -46,6 +46,7 @@ create table product(
 	supplier_id int,
 	purchases INT DEFAULT 0,
 	views INT DEFAULT 0,
+	CONSTRAINT pk_product PRIMARY KEY (id),
 	CONSTRAINT fk_product_category_id FOREIGN KEY (category_id) REFERENCES category(id),
 	CONSTRAINT fk_product_supplier_id FOREIGN KEY (supplier_id) REFERENCES user_detail(id)
 )
@@ -68,3 +69,18 @@ CREATE TABLE cart_line (
 	
 	
 
+
+CREATE TABLE Address (
+	id serial,
+	addressLineOne VARCHAR(60),
+	addressLineTwo VARCHAR(60),
+	city VARCHAR(60),
+	country VARCHAR(60),
+	postalCode VARCHAR(60),
+	billing BOOLEAN,
+	shipping BOOLEAN,
+	user_id int,
+	CONSTRAINT fk_address_user_id FOREIGN KEY (user_id) REFERENCES user_detail(id),
+	CONSTRAINT pk_address_id PRIMARY KEY (id)
+);
+	
