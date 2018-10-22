@@ -12,11 +12,11 @@ import net.ssh.shoppingbackend.dao.productDAO;
 import net.ssh.shoppingbackend.dto.Cart;
 import net.ssh.shoppingbackend.dto.CartLine;
 import net.ssh.shoppingbackend.dto.Product;
-import net.ssh.shoppingbackend.dto.UserModel;
+import net.ssh.shoppingbackend.dto.UserModel;	
 
 @Service(value = "cartService")
 public class CartLineServiceClass {
-
+	
 	@Autowired
 	private HttpSession session;
 
